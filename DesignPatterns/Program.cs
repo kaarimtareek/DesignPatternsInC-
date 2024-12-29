@@ -1,9 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using DesignPatterns.Creational.AbstractFactory;
+using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
 
 Console.WriteLine("Hello World!");
+//---Creational patterns---
+
+
+
 
 // ---Factory Method---
 // Dialog dialogA = new DialogA();
@@ -26,3 +31,24 @@ Console.WriteLine("Hello World!");
 // var checkBox = winFactory.CreateCheckBox();
 // button.OnClick(); // Prints => winbutton clicked
 // checkBox.OnClick(); // Prints => winbutton clicked
+
+/*--------------------------------------------------------------
+ * ---Difference between Abstract factory and factory method---
+ * the factory method constructs and return a variation of the object
+ * on the other hand, the abstract factory return a variation of related objects.
+ *--------------------------------------------------------------
+ */
+ 
+// ---Builder--- 
+// var director = new Director();
+// var builder = new CarBuilder();
+//
+// director.BuildSportCar(builder);
+// var car = builder.GetResult();
+// var manualBuilder = new CarManualBuilder();
+// director.BuildSuvCar(manualBuilder);
+// var manual = manualBuilder.GetResult();
+// Console.WriteLine(car);
+// Console.WriteLine(manual);
+//----------------
+
