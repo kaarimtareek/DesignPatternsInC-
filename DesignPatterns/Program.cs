@@ -3,6 +3,7 @@
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
+using DesignPatterns.Creational.Singleton;
 
 Console.WriteLine("Hello World!");
 //---Creational patterns---
@@ -52,3 +53,9 @@ Console.WriteLine("Hello World!");
 // Console.WriteLine(manual);
 //----------------
 
+// ---Singleton
+var instance = Database.Instance();
+instance.Query("SELECT * FROM Products");
+var result = instance.Execute();
+Console.WriteLine(result);
+//--------------
