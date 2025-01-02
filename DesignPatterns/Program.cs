@@ -1,9 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Net.Security;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
 using DesignPatterns.Creational.Singleton;
+using DesignPatterns.Structural.Adapter;
+using DesignPatterns.Structural.Bridge;
 
 Console.WriteLine("Hello World!");
 //---Creational patterns---
@@ -54,8 +57,36 @@ Console.WriteLine("Hello World!");
 //----------------
 
 // ---Singleton
-var instance = Database.Instance();
-instance.Query("SELECT * FROM Products");
-var result = instance.Execute();
-Console.WriteLine(result);
+// var instance = Database.Instance();
+// instance.Query("SELECT * FROM Products");
+// var result = instance.Execute();
+// Console.WriteLine(result);
 //--------------
+
+//-------STRUCTURAL PATTERNS--------------
+
+//---Adapter---
+
+// var roundHole = new RoundHole(5);
+// var roundPeg = new RoundPeg(3);
+//
+// Console.WriteLine(roundHole.Fits(roundPeg));// true
+//
+// var smallAdapter = new SquarePegAdapter(new SquarePeg(5));
+// var largeAdapter = new SquarePegAdapter(new SquarePeg(20));
+//
+// Console.WriteLine(roundHole.Fits(smallAdapter));// true
+// Console.WriteLine(roundHole.Fits(largeAdapter));// false
+//-------------
+
+//---Bridge---
+// var tv = new TV();
+// var remote = new Remote(tv);
+//
+// remote.TogglePower();
+//
+// var radio = new Radio();
+// var radioRemote = new AdvancedRemote(radio);
+//
+// radioRemote.Mute();
+//------------
