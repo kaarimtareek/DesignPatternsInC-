@@ -7,6 +7,11 @@ using DesignPatterns.Creational.FactoryMethod;
 using DesignPatterns.Creational.Singleton;
 using DesignPatterns.Structural.Adapter;
 using DesignPatterns.Structural.Bridge;
+using DesignPatterns.Structural.Composite;
+using DesignPatterns.Structural.Decorator;
+using DesignPatterns.Structural.Facade;
+using DesignPatterns.Structural.Flyweight;
+using DesignPatterns.Structural.Proxy;
 
 Console.WriteLine("Hello World!");
 //---Creational patterns---
@@ -90,3 +95,51 @@ Console.WriteLine("Hello World!");
 //
 // radioRemote.Mute();
 //------------
+
+//---Composite---
+//
+// var graphics = new CompoundGraphic();
+//
+// var dots =new List<Dot>(){ new Dot(1,2), new Dot(2,3), new Dot(3,4) };
+// var circles = new List<Circle>(){ new Circle(1,2,4), new Circle(2,3,5) , new Circle(3,4,6) };
+// graphics.AddGraphics(dots);
+// graphics.AddGraphics(circles);
+//
+// graphics.Draw();
+//---------------
+
+//---Decorator---
+//
+// var fileData = new FileDataSource("somefile.txt");
+// var compressionDecorator = new CompressDecorator(fileData);
+//
+// var encryptionDecorator = new EncryptionDecorator(compressionDecorator);
+// encryptionDecorator.WriteData([]);
+//---------------
+
+//---Facade---
+
+//var converter = new VideoConverter();
+//converter.Convert("filename", "mp4");
+//------------
+
+//---Flyweight---
+
+// var forest = new Forest();
+// forest.PlantTree(1,2,"Tree1", "Red", "Smooth");
+// forest.PlantTree(2,2,"Tree2", "Blue", "Rough");
+// forest.PlantTree(1,1,"Tree2", "Blue", "Rough");
+// forest.PlantTree(3,4,"Tree1", "Red", "Smooth");
+//
+// forest.PlantTree(3,3,"Tree2", "Blue", "Rough");
+// forest.Draw();
+//---------------
+
+//---Proxy---
+
+var youtubLib = new ThirdPartyYoutubeLib();
+var proxy = new CachedYoutube(youtubLib);
+
+var videos = proxy.ListVideos();
+Console.WriteLine("Videos: " + string.Join(", ", videos));
+//-----------
