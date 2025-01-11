@@ -1,6 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Net.Security;
+using DesignPatterns.Behavioral.ChainOfReponsibility;
+using DesignPatterns.Behavioral.Iterator;
+using DesignPatterns.Behavioral.Observer;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
@@ -12,6 +15,8 @@ using DesignPatterns.Structural.Decorator;
 using DesignPatterns.Structural.Facade;
 using DesignPatterns.Structural.Flyweight;
 using DesignPatterns.Structural.Proxy;
+using Microsoft.VisualBasic.FileIO;
+using Dialog = DesignPatterns.Behavioral.ChainOfReponsibility.Dialog;
 
 Console.WriteLine("Hello World!");
 //---Creational patterns---
@@ -137,9 +142,74 @@ Console.WriteLine("Hello World!");
 
 //---Proxy---
 
-var youtubLib = new ThirdPartyYoutubeLib();
-var proxy = new CachedYoutube(youtubLib);
-
-var videos = proxy.ListVideos();
-Console.WriteLine("Videos: " + string.Join(", ", videos));
+// var youtubeLib = new ThirdPartyYoutubeLib();
+// var proxy = new CachedYoutube(youtubeLib);
+//
+// var videos = proxy.ListVideos();
+// Console.WriteLine("Videos: " + string.Join(", ", videos));
 //-----------
+
+
+//---Chain of Responsibility---
+
+// var dialog = new Dialog("HelpDialog.Com");
+// var panel = new Panel("Help Panel");
+// var okButton = new Button("Ok");
+// var cancelButton = new Button("Cancel");
+// panel.AddChild(okButton);
+// panel.AddChild(cancelButton);
+// dialog.AddChild(panel);
+// F1KeyPress();
+// return;
+//
+//  void F1KeyPress()
+// {
+//     List<Component> componentsList = [dialog, panel, okButton, cancelButton];
+//     
+//     //simulating getting the component that is clicked
+//     var component = componentsList[(new Random()).Next(componentsList.Count)]; 
+//     component.ShowHelp();
+// }
+
+//---------------------------
+
+//---Command---
+
+//-------------
+
+//---Iterator---
+//
+// ISocialNetwork socialNetwork = new Facebook();
+// string profileId = "1234";
+// SpamToFriends(socialNetwork, profileId, "Hello everyone!");
+// return;
+// void SpamToFriends(ISocialNetwork socialNetwork, string profileId, string message)
+// {
+//     var iterator = socialNetwork.CreateCoworkersIterator(profileId);
+//     SocialSpammer.Send(iterator, message);
+// }
+//
+// void SpamToCoworkers(ISocialNetwork socialNetwork, string profileId, string message)
+// {
+//     var iterator = socialNetwork.CreateCoworkersIterator(profileId);
+//     SocialSpammer.Send(iterator, message);
+// }
+//--------------
+
+//---Memento---
+
+
+//-------------
+
+//---Observer---
+
+Editor editor = new Editor();
+var emailListener = new EmailAlertListener();
+var loggingListener = new LoggingListener();
+editor.Subscribe(EventManager.SAVED, emailListener);
+editor.Subscribe(EventManager.OPENED, loggingListener);
+
+editor.OpenFile("file.txt");
+editor.SaveFile("file.txt");
+
+//--------------
