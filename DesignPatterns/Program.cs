@@ -4,6 +4,7 @@ using System.Net.Security;
 using DesignPatterns.Behavioral.ChainOfReponsibility;
 using DesignPatterns.Behavioral.Iterator;
 using DesignPatterns.Behavioral.Observer;
+using DesignPatterns.Behavioral.Strategy;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
@@ -203,13 +204,24 @@ Console.WriteLine("Hello World!");
 
 //---Observer---
 
-Editor editor = new Editor();
-var emailListener = new EmailAlertListener();
-var loggingListener = new LoggingListener();
-editor.Subscribe(EventManager.SAVED, emailListener);
-editor.Subscribe(EventManager.OPENED, loggingListener);
+// Editor editor = new Editor();
+// var emailListener = new EmailAlertListener();
+// var loggingListener = new LoggingListener();
+// editor.Subscribe(EventManager.SAVED, emailListener);
+// editor.Subscribe(EventManager.OPENED, loggingListener);
+//
+// editor.OpenFile("file.txt");
+// editor.SaveFile("file.txt");
 
-editor.OpenFile("file.txt");
-editor.SaveFile("file.txt");
+//--------------
+
+//---Strategy---
+
+// var context = new Context(new AddStrategy());
+//
+// Console.WriteLine(context.Execute(1,3));
+//
+// context.SetStrategy(new MultiplyStrategy());
+// Console.WriteLine(context.Execute(1,3));
 
 //--------------
